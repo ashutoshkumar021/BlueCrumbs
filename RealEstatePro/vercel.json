@@ -1,0 +1,38 @@
+{
+  "builds": [
+    {
+      "src": "server/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/$",
+      "dest": "/public/templates/index.html"
+    },
+    {
+      "src": "^/(favicon\\.ico)$",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "^/(css|js|images|location)/(.*)",
+      "dest": "/public/$1/$2"
+    },
+    {
+      "src": "^/(?!admin|api)(.*)\\.html$",
+      "dest": "/public/templates/$1.html"
+    },
+    {
+      "src": "^/admin/(.*)$",
+      "dest": "/admin/$1"
+    },
+    {
+      "src": "/inquiry",
+      "dest": "/server/server.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/server.js"
+    }
+  ]
+}

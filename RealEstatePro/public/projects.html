@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | BlueCrumbs</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/bgremovelogo.png" />
+    <link rel="shortcut icon" type="image/png" href="images/bgremovelogo.png" />
+    <link rel="apple-touch-icon" href="images/bgremovelogo.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Projects specific styles */
+    .projects-hero {
+      background:
+        url("images/2151339742.jpg") center/cover no-repeat;
+      padding: 100px 0 80px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .projects-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .projects-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .project-filters {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 25px;
+      border: 2px solid #f7b801;
+      background: transparent;
+      color: #f7b801;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #f7b801;
+      color: #fff;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+      align-items: stretch;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 420px;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .project-image {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .project-image-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .project-image-slide.active {
+      opacity: 1;
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #f7b801;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-content {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      flex: 1;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0d2c54;
+      margin-bottom: 10px;
+    }
+
+    .project-location {
+      color: #6b7280;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-features {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      background: #f8f9fb;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      color: #0d2c54;
+    }
+
+    .project-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f7b801;
+      margin-bottom: 15px;
+    }
+
+    .project-btn {
+      width: 100%;
+      padding: 12px;
+      background: #0d2c54;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: auto;
+    }
+
+    .project-btn:hover {
+      background: #173a77;
+    }
+
+    .no-projects {
+      text-align: center;
+      padding: 50px;
+      color: #6b7280;
+    }
+
+    .no-projects i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #d1d5db;
+    }
+
+    @media (min-width: 992px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    #project-callback-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .project-callback-modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .project-callback-modal-content h3 {
+      margin-bottom: 15px;
+      color: #0d2c54;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .project-callback-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #6b7280;
+    }
+
+    .project-callback-modal-content .form-group {
+      margin-bottom: 15px;
+    }
+
+    .project-callback-modal-content .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 0.95rem;
+    }
+
+     .breadcrumb-wrapper {
+     padding: 40px 0 30px;
+      text-align: center;
+      color: #fff;
+    }
+    .breadcrumb-wrapper h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .breadcrumb-wrapper .breadcrumb {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+    }
+    .breadcrumb-wrapper .breadcrumb li {
+      font-size: 1.1rem;
+      color: #f7b801;
+    }
+    .breadcrumb-wrapper .breadcrumb li a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .breadcrumb-wrapper .breadcrumb li a:hover {
+      color: #f7b801;
+    }
+    .breadcrumb-wrapper .breadcrumb li + li::before {
+      content: "›";
+      color: #f7b801;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section class="projects-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12 mb-4 mb-lg-0">
+          <h1 class="section-title mb-0" style="color: white;">Our Projects</h1>
+          <p>Discover premium residential, commercial and industrial properties</p>
+        </div>
+        
+      </div>
+    </div>
+
+     <section class="breadcrumb-wrapper">
+    <div class="container">
+      <ul class="breadcrumb">
+        <!-- <li><a href="/index.html">Home</a></li>
+        <li>Our Projects</li>
+      </ul> -->
+    </div>
+  </section>
+  </section>
+
+  
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    <!-- Project Filters -->
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="residential">Residential</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+      <button class="filter-btn" data-filter="industrial">Industrial</button>
+    </div>
+
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+          <div class="search-box">
+            <div class="input-group">
+              <input type="text" id="property-search" class="form-control" placeholder="Search by project or location...">
+              <button class="btn btn-primary" type="button" id="property-search-btn"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <br><br>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid" id="projectsGrid"></div>
+
+    <!-- No Projects Message -->
+    <div class="no-projects" id="noProjects" style="display: none;">
+      <i class="fa-solid fa-search"></i>
+      <h3>No projects found</h3>
+      <p>Try adjusting your filters to see more projects.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Floating Call Button -->
+  <button id="floating-enquiry-btn" class="floating-btn" aria-label="Quick enquiry"><i class="fas fa-phone-alt"></i></button>
+
+  <!-- Quick Enquiry Popup -->
+  <div id="quick-enquiry-popup" class="enquiry-popup" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="popup-content">
+      <button id="close-popup-btn" class="close-popup" aria-label="Close popup">&times;</button>
+      <h3>Need Help?<br/>Get a quick call back.</h3>
+      <form id="popup-inquiry-form" aria-label="Quick enquiry form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Enter Name" required aria-label="Your Name" />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Enter Email" required aria-label="Your Email" />
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="Enter Phone" required maxlength="10" aria-label="Your Phone Number" />
+        </div>
+        <input type="hidden" name="source" value="Projects Page Quick Popup" />
+        <button type="submit" class="btn btn-primary w-100">Request Call Back</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toaster" role="status" aria-live="polite"></div>
+
+  <div id="project-callback-modal">
+    <div class="project-callback-modal-content">
+      <button type="button" id="project-callback-close" class="project-callback-close">&times;</button>
+      <h3>Request Call Back</h3>
+      <form id="project-callback-form">
+        <div class="form-group">
+          <input type="text" id="pc-name" placeholder="Enter Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="pc-email" placeholder="Enter Email" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="pc-phone" placeholder="Enter Phone" required maxlength="10">
+        </div>
+        <div class="form-group">
+          <input type="text" id="pc-project" readonly>
+        </div>
+        <input type="hidden" id="pc-builder">
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- jQuery & Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/form-handler.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      // Load header & footer
+      $('#header-placeholder').load('templates/header.html', function() {
+        initializeHeaderSidebar();
+      });
+      $('#footer-placeholder').load('templates/footer.html');
+      let projectSliders = [];
+      let currentFilter = 'all';
+
+      async function loadProjects(filter, searchTerm) {
+        currentFilter = filter || 'all';
+        const params = {};
+        if (currentFilter && currentFilter !== 'all') {
+          if (currentFilter === 'residential') {
+            params.projectType = 'Residential';
+          } else if (currentFilter === 'commercial') {
+            params.projectType = 'Commercial';
+          } else if (currentFilter === 'industrial') {
+            params.projectType = 'Industrial';
+          }
+        }
+        if (searchTerm && searchTerm.trim()) {
+          params.searchTerm = searchTerm.trim();
+        }
+        const query = new URLSearchParams(params).toString();
+        const url = query ? `/api/projects/search?${query}` : '/api/projects/search';
+        try {
+          const response = await fetch(url);
+          const projects = await response.json();
+          renderProjects(projects);
+        } catch (error) {
+          console.error('Error loading projects:', error);
+        }
+      }
+
+      function renderProjects(projects) {
+        const grid = $('#projectsGrid');
+        const noProjects = $('#noProjects');
+        projectSliders.forEach(id => clearInterval(id));
+        projectSliders = [];
+        grid.empty();
+        if (!projects || projects.length === 0) {
+          noProjects.show();
+          return;
+        }
+        noProjects.hide();
+        projects.forEach(project => {
+          const type = (project.project_type || '').toLowerCase();
+          const photos = Array.isArray(project.photos) && project.photos.length ? project.photos.slice(0, 3) : [];
+          const fallbackImage = 'images/property-1.jpg';
+          const imageSlides = photos.length ? photos : [fallbackImage];
+          const badge = project.status_possession || project.project_type || '';
+          const bhk = project.bhk || '';
+          const size = project.size_sqft || '';
+          const price = project.min_price && project.max_price ? `${project.min_price} - ${project.max_price}` : (project.min_price || project.max_price || '');
+          const slidesHtml = imageSlides.map((url, index) => `
+                <div class="project-image-slide${index === 0 ? ' active' : ''}" style="background-image: url('${url}')"></div>
+              `).join('');
+          const card = `
+            <div class="project-card" data-category="${type}">
+              <div class="project-image">
+                <div class="project-image-inner">
+                  ${slidesHtml}
+                </div>
+                <div class="project-badge">${badge}</div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">${project.project_name || ''}</h3>
+                <div class="project-location">
+                  <i class="fa-solid fa-user-tie"></i>
+                  ${project.builder_name || ''}
+                </div>
+                <div class="project-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  ${project.location || ''}
+                </div>
+                <div class="project-features">
+                  ${bhk ? `<span class="feature">BHK:${bhk}</span>` : ''}
+                  ${size ? `<span class="feature">Size:${size}</span>` : ''}
+                  ${project.project_type ? `<span class="feature">Type:${project.project_type}</span>` : ''}
+                  ${project.rera_number ? `<span class="feature">RERA: ${project.rera_number}</span>` : ''}
+                  ${project.possession_date ? `<span class="feature">Possession: ${project.possession_date}</span>` : ''}
+                </div>
+                <div class="project-price">${price ? `₹ ${price}` : ''}</div>
+                <button class="project-btn" data-project-name="${project.project_name || ''}" data-builder-name="${project.builder_name || ''}">Request Call Back</button>
+              </div>
+            </div>
+          `;
+          grid.append(card);
+        });
+        $('.project-image').each(function() {
+          const container = $(this);
+          const slides = container.find('.project-image-slide');
+          if (slides.length <= 1) {
+            return;
+          }
+          let index = 0;
+          const intervalId = setInterval(function() {
+            slides.eq(index).removeClass('active');
+            index = (index + 1) % slides.length;
+            slides.eq(index).addClass('active');
+          }, 3000);
+          projectSliders.push(intervalId);
+        });
+      }
+
+      // Project filtering
+      $('.filter-btn').on('click', function() {
+        const filter = $(this).data('filter');
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+        const term = $('#property-search').val();
+        loadProjects(filter, term);
+      });
+
+      $('#property-search').on('input', function() {
+        const term = $(this).val();
+        loadProjects(currentFilter, term);
+      });
+
+      $('#property-search-btn').on('click', function() {
+        const term = $('#property-search').val();
+        loadProjects(currentFilter, term);
+      });
+
+      loadProjects('all', '');
+
+      const callbackModal = $('#project-callback-modal');
+      const callbackForm = $('#project-callback-form');
+      const cbName = $('#pc-name');
+      const cbEmail = $('#pc-email');
+      const cbPhone = $('#pc-phone');
+      const cbProject = $('#pc-project');
+      const cbBuilder = $('#pc-builder');
+
+      $(document).on('click', '.project-btn', function() {
+        const btn = $(this);
+        const projectName = btn.data('project-name') || '';
+        const builderName = btn.data('builder-name') || '';
+        if (callbackForm.length) {
+          callbackForm[0].reset();
+        }
+        cbProject.val(projectName);
+        cbBuilder.val(builderName);
+        callbackModal.fadeIn(150);
+      });
+
+      $('#project-callback-close').on('click', function() {
+        callbackModal.hide();
+      });
+
+      $('#project-callback-modal').on('click', function(e) {
+        if (e.target === this) {
+          callbackModal.hide();
+        }
+      });
+
+      callbackForm.on('submit', async function(e) {
+        e.preventDefault();
+        const name = cbName.val().trim();
+        const email = cbEmail.val().trim();
+        const phone = cbPhone.val().trim();
+        const projectName = cbProject.val().trim();
+        const builderName = cbBuilder.val().trim();
+
+        if (!name || !email || !phone || !projectName) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please fill all required fields.', true);
+          }
+          return;
+        }
+
+        const phoneClean = phone.replace(/[^0-9]/g, '').slice(0, 10);
+        if (phoneClean.length !== 10) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please enter a valid 10-digit mobile number.', true);
+          }
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please enter a valid email address.', true);
+          }
+          return;
+        }
+
+        const payload = {
+          name: name,
+          email: email,
+          phone: phoneClean,
+          project_name: projectName,
+          builder_name: builderName
+        };
+
+        const submitBtn = callbackForm.find('button[type="submit"]');
+        const prevText = submitBtn.html();
+        submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Submitting...');
+
+        try {
+          const response = await fetch('/api/project-callback', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            const msg = data && data.error ? data.error : 'Failed to submit request.';
+            if (window.FormHandler && FormHandler.showToast) {
+              FormHandler.showToast(msg, true);
+            }
+          } else {
+            if (window.FormHandler && FormHandler.showToast) {
+              FormHandler.showToast(data.message || 'Request submitted successfully.', false);
+            }
+            callbackModal.hide();
+          }
+        } catch (err) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Network error. Please try again.', true);
+          }
+        } finally {
+          submitBtn.prop('disabled', false).html(prevText);
+        }
+      });
+
+      // Sidebar
+      function initializeHeaderSidebar(){
+        $(document).on('click', '#sidebar-toggle', function () {
+          $('#sidebar').addClass('active').attr('aria-hidden','false');
+          $('.sidebar-overlay').addClass('active');
+          $('#sidebar-toggle').attr('aria-expanded','true');
+          $('body').css('overflow','hidden');
+        });
+        $(document).on('click', '#sidebar-close, .sidebar-overlay', function () {
+          $('#sidebar').removeClass('active').attr('aria-hidden','true');
+          $('.sidebar-overlay').removeClass('active');
+          $('#sidebar-toggle').attr('aria-expanded','false');
+          $('body').css('overflow','');
+        });
+        $(document).on('click', '.submenu-toggle', function(e){
+          e.preventDefault();
+          const parent = $(this).closest('.has-submenu');
+          parent.toggleClass('open');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

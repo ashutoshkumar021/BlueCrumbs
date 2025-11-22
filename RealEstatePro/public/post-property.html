@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Property | BlueCrumbs</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/bgremovelogo.png" />
+    <link rel="shortcut icon" type="image/png" href="images/bgremovelogo.png" />
+    <link rel="apple-touch-icon" href="images/bgremovelogo.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Post Property specific styles */
+    .post-property-hero {
+      background:
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+      padding: 100px 0 80px;
+      text-align: center;
+      color: #fff;
+    }
+     .breadcrumb-wrapper {
+     padding: 40px 0 30px;
+      text-align: center;
+      color: #fff;
+    }
+    .breadcrumb-wrapper h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .breadcrumb-wrapper .breadcrumb {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+    }
+    .breadcrumb-wrapper .breadcrumb li {
+      font-size: 1.1rem;
+      color: #f7b801;
+    }
+    .breadcrumb-wrapper .breadcrumb li a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .breadcrumb-wrapper .breadcrumb li a:hover {
+      color: #f7b801;
+    }
+    .breadcrumb-wrapper .breadcrumb li + li::before {
+      content: "›";
+      color: #f7b801;
+      margin: 0 8px;
+    }
+
+    .post-property-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .post-property-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .property-form {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    .property-form h3 {
+      color: #0d2c54;
+      font-weight: 600;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-weight: 500;
+      color: #0d2c54;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #f7b801;
+      box-shadow: 0 0 8px rgba(247,184,1,0.3);
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: #f7b801;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-submit:hover {
+      background: #e0a600;
+      transform: translateY(-2px);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .benefit-card {
+      background: #f8f9fb;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .benefit-card i {
+      font-size: 2rem;
+      color: #f7b801;
+      margin-bottom: 15px;
+    }
+
+    .benefit-card h4 {
+      color: #0d2c54;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .user-properties-section {
+      margin-top: 40px;
+    }
+
+    .user-properties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+      margin-bottom: 50px;
+      align-items: stretch;
+    }
+
+    @media (min-width: 992px) {
+      .user-properties-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .user-property-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .user-property-type {
+      font-weight: 600;
+      color: #0d2c54;
+      margin-bottom: 6px;
+    }
+
+    .user-property-location {
+      color: #6b7280;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .user-property-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .user-property-meta span {
+      background: #f8f9fb;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.85rem;
+      color: #0d2c54;
+    }
+
+    .user-property-price {
+      font-weight: 700;
+      color: #f7b801;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .user-property-description {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-top: auto;
+    }
+
+    /* Project card layout reused from projects page */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+      align-items: stretch;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 420px;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .project-image {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .project-image-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .project-image-slide.active {
+      opacity: 1;
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #f7b801;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-content {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      flex: 1;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0d2c54;
+      margin-bottom: 10px;
+    }
+
+    .project-location {
+      color: #6b7280;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-features {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      background: #f8f9fb;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      color: #0d2c54;
+    }
+
+    .project-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f7b801;
+      margin-bottom: 15px;
+    }
+
+    .project-btn {
+      width: 100%;
+      padding: 12px;
+      background: #0d2c54;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: auto;
+    }
+
+    .project-btn:hover {
+      background: #173a77;
+    }
+
+    /* Callback modal reused from projects page */
+    #project-callback-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .project-callback-modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .project-callback-modal-content h3 {
+      margin-bottom: 15px;
+      color: #0d2c54;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .project-callback-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #6b7280;
+    }
+
+    .project-callback-modal-content .form-group {
+      margin-bottom: 15px;
+    }
+
+    .project-callback-modal-content .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section class="post-property-hero">
+    <div class="container">
+      <h1>Post Your Property Hear</h1>
+      <p>List your property with Blue Crumbs Infra and reach thousands of potential buyers</p>
+    </div>
+
+    <section class="breadcrumb-wrapper">
+    <div class="container">
+      <!-- <h1>About Us</h1> -->
+      <!-- <ul class="breadcrumb">
+        <li><a href="/index.html">Home</a></li>
+        <li>Post Property</li>
+      </ul> -->
+    </div>
+  </section>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    <div class="row">
+      
+      
+      <div class="col-lg-12">
+        <div class="property-form">
+          <h3><i class="fa-solid fa-plus-circle"></i> Property Details</h3>
+          <form id="property-form">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+              <div class="form-group" style="grid-column: 1 / -1;">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-home" style="color: #667eea; margin-right: 5px;"></i> Project Name *
+                </label>
+                <input type="text" id="project_name" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: all 0.3s; box-sizing: border-box;"
+                    placeholder="Enter project name">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-hard-hat" style="color: #f093fb; margin-right: 5px;"></i> Builder Name *
+                </label>
+                <input type="text" id="builder_name" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="Enter builder name">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-city" style="color: #4facfe; margin-right: 5px;"></i> Project Type *
+                </label>
+                <select id="project_type" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; background: white; box-sizing: border-box;">
+                  <option value="">Select Type</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Industrial">Industrial</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-rupee-sign" style="color: #43e97b; margin-right: 5px;"></i> Min Price *
+                </label>
+                <input type="text" id="min_price" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="e.g., 65 Lac or 1.2 Cr">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-rupee-sign" style="color: #43e97b; margin-right: 5px;"></i> Max Price *
+                </label>
+                <input type="text" id="max_price" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="e.g., 1.5 Cr or 2.5 Cr">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-expand" style="color: #fa709a; margin-right: 5px;"></i> Size (sq.ft) *
+                </label>
+                <input type="text" id="size_sqft" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="e.g., 1200-1800">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-bed" style="color: #feca57; margin-right: 5px;"></i> BHK Configuration *
+                </label>
+                <input type="text" id="bhk" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="e.g., 2,3,4 BHK">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-clock" style="color: #ff6b6b; margin-right: 5px;"></i> Status/Possession *
+                </label>
+                <select id="status_possession" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; background: white; box-sizing: border-box;">
+                  <option value="">Select Status</option>
+                  <option value="Ready to Move">Ready to Move</option>
+                  <option value="Under Construction">Under Construction</option>
+                  <option value="New Launch">New Launch</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-map-marker-alt" style="color: #ee5a6f; margin-right: 5px;"></i> Location *
+                </label>
+                <input type="text" id="location" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="e.g., Sector 150 Noida">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-id-card" style="color: #667eea; margin-right: 5px;"></i> RERA Number
+                </label>
+                <input type="text" id="rera_number" 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="Enter RERA number">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-calendar" style="color: #43e97b; margin-right: 5px;"></i> Possession Date
+                </label>
+                <input type="text" id="possession_date" 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="e.g., Dec 2025">
+              </div>
+
+              <div class="form-group" style="grid-column: 1 / -1;">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-image" style="color: #667eea; margin-right: 5px;"></i> Property Photos (up to 3)
+                </label>
+                <input type="file" name="photos" accept="image/*" style="display:block; margin-bottom:8px;">
+                <input type="file" name="photos" accept="image/*" style="display:block; margin-bottom:8px;">
+                <input type="file" name="photos" accept="image/*" style="display:block;">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-user" style="color: #667eea; margin-right: 5px;"></i> Owner Name *
+                </label>
+                <input type="text" id="ownerName" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="Enter owner name">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-envelope" style="color: #667eea; margin-right: 5px;"></i> Owner Email *
+                </label>
+                <input type="email" id="ownerEmail" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="Enter owner email">
+              </div>
+
+              <div class="form-group">
+                <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
+                  <i class="fas fa-phone" style="color: #667eea; margin-right: 5px;"></i> Owner Mobile *
+                </label>
+                <input type="tel" id="ownerMobile" required 
+                    style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+                    placeholder="Enter owner mobile">
+              </div>
+            </div>
+
+            <div style="margin-top: 20px; text-align: right;">
+              <button type="submit" class="btn-submit" style="width: auto; padding: 12px 32px;">
+                <i class="fa-solid fa-paper-plane"></i> Submit Property
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </main>
+
+  <section class="user-properties-section">
+   
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-center mb-4">
+        <h2 class="section-title mb-0">Property Posted By Seller</h2>
+       </div>
+       <div class="container">
+      <div class="row">
+        <div class="search-box col-lg-12">
+          <div class="input-group">
+            <input type="text" id="property-search" class="form-control" placeholder="Search by project name or location...">
+            <span class="input-group-text bg-primary text-white"><i class="fas fa-search"></i></span>
+          </div>
+        </div>
+      </div>
+   </div>
+   <br>
+      <div id="user-properties-grid" class="user-properties-grid"></div>
+      <div id="no-user-properties" class="text-center text-muted" style="display:none; margin-top:10px;">No properties posted yet.</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Floating Call Button -->
+  <button id="floating-enquiry-btn" class="floating-btn" aria-label="Quick enquiry"><i class="fas fa-phone-alt"></i></button>
+
+  <!-- Quick Enquiry Popup -->
+  <div id="quick-enquiry-popup" class="enquiry-popup" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="popup-content">
+      <button id="close-popup-btn" class="close-popup" aria-label="Close popup">&times;</button>
+      <h3>Need Help?<br/>Get a quick call back.</h3>
+      <form id="popup-inquiry-form" aria-label="Quick enquiry form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Enter Name" required aria-label="Your Name" />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Enter Email" required aria-label="Your Email" />
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="Enter Phone" required maxlength="10" aria-label="Your Phone Number" />
+        </div>
+        <input type="hidden" name="source" value="Post Property Page Quick Popup" />
+        <button type="submit" class="btn btn-primary w-100">Request Call Back</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toaster" role="status" aria-live="polite"></div>
+
+  <div id="project-callback-modal">
+    <div class="project-callback-modal-content">
+      <button type="button" id="project-callback-close" class="project-callback-close">&times;</button>
+      <h3>Request Call Back</h3>
+      <form id="project-callback-form">
+        <div class="form-group">
+          <input type="text" id="pc-name" placeholder="Enter Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="pc-email" placeholder="Enter Email" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="pc-phone" placeholder="Enter Phone" required maxlength="10">
+        </div>
+        <div class="form-group">
+          <input type="text" id="pc-project" readonly>
+        </div>
+        <input type="hidden" id="pc-builder">
+        <input type="hidden" id="pc-user-property-id">
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- jQuery & Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/form-handler.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      let userProjectSliders = [];
+      $('#header-placeholder').load('templates/header.html', function() {
+        if (window.initializeSidebar) {
+          window.initializeSidebar();
+        }
+      });
+      $('#footer-placeholder').load('templates/footer.html');
+
+      function loadUserProperties(){
+        $.ajax({
+          url: '/api/user-properties',
+          method: 'GET',
+          success: function(properties){
+            const grid = $('#user-properties-grid');
+            const emptyState = $('#no-user-properties');
+
+            if (!Array.isArray(properties) || !properties.length) {
+              grid.empty();
+              emptyState.show();
+              return;
+            }
+
+            emptyState.hide();
+            userProjectSliders.forEach(id => clearInterval(id));
+            userProjectSliders = [];
+            grid.empty();
+
+            properties.forEach(function(p){
+              const type = (p.project_type || '').toLowerCase();
+              const photos = Array.isArray(p.photos) && p.photos.length ? p.photos.slice(0, 3) : [];
+              const fallbackImage = 'images/property-1.jpg';
+              const imageSlides = photos.length ? photos : [fallbackImage];
+              const badge = p.status_possession || p.project_type || '';
+              const bhk = p.bhk || '';
+              const size = p.size_sqft || '';
+              const price = p.min_price && p.max_price ? (p.min_price + ' - ' + p.max_price) : (p.min_price || p.max_price || '');
+              const slidesHtml = imageSlides.map(function(url, index){
+                return '<div class="project-image-slide' + (index === 0 ? ' active' : '') + '" style="background-image: url(\'' + url + '\')"></div>';
+              }).join('');
+
+              const cardHtml =
+                '<div class="project-card" data-category="' + $('<div>').text(type).html() + '">' +
+                  '<div class="project-image">' +
+                    '<div class="project-image-inner">' +
+                      slidesHtml +
+                    '</div>' +
+                    '<div class="project-badge">' + $('<div>').text(badge).html() + '</div>' +
+                  '</div>' +
+                  '<div class="project-content">' +
+                    '<h3 class="project-title">' + $('<div>').text(p.project_name || '').html() + '</h3>' +
+                    '<div class="project-location">' +
+                      '<i class="fa-solid fa-user-tie"></i>' +
+                      $('<div>').text(p.builder_name || '').html() +
+                    '</div>' +
+                    '<div class="project-location">' +
+                      '<i class="fa-solid fa-location-dot"></i>' +
+                      $('<div>').text(p.location || '').html() +
+                    '</div>' +
+                    '<div class="project-features">' +
+                      (bhk ? '<span class="feature">BHK:' + $('<div>').text(bhk).html() + '</span>' : '') +
+                      (size ? '<span class="feature">Size:' + $('<div>').text(size).html() + '</span>' : '') +
+                      (p.project_type ? '<span class="feature">Type:' + $('<div>').text(p.project_type).html() + '</span>' : '') +
+                      (p.rera_number ? '<span class="feature">RERA: ' + $('<div>').text(p.rera_number).html() + '</span>' : '') +
+                      (p.possession_date ? '<span class="feature">Possession: ' + $('<div>').text(p.possession_date).html() + '</span>' : '') +
+                    '</div>' +
+                    '<div class="project-price">' + (price ? '₹ ' + $('<div>').text(price).html() : '') + '</div>' +
+                    '<button class="project-btn" data-project-name="' + $('<div>').text(p.project_name || '').html() + '" data-builder-name="' + $('<div>').text(p.builder_name || '').html() + '" data-user-property-id="' + (p._id || p.id || '') + '">Request Call Back</button>' +
+                  '</div>' +
+                '</div>';
+
+              grid.append(cardHtml);
+            });
+
+            $('#user-properties-grid .project-image').each(function() {
+              const container = $(this);
+              const slides = container.find('.project-image-slide');
+              if (slides.length <= 1) {
+                return;
+              }
+              let index = 0;
+              const intervalId = setInterval(function() {
+                slides.eq(index).removeClass('active');
+                index = (index + 1) % slides.length;
+                slides.eq(index).addClass('active');
+              }, 3000);
+              userProjectSliders.push(intervalId);
+            });
+          },
+          error: function(){
+            if (window.FormHandler && FormHandler.showToast) {
+              FormHandler.showToast('Failed to load properties. Please try again later.', true);
+            }
+          }
+        });
+      }
+
+      loadUserProperties();
+
+      const callbackModal = $('#project-callback-modal');
+      const callbackForm = $('#project-callback-form');
+      const cbName = $('#pc-name');
+      const cbEmail = $('#pc-email');
+      const cbPhone = $('#pc-phone');
+      const cbProject = $('#pc-project');
+      const cbBuilder = $('#pc-builder');
+      const cbUserPropertyId = $('#pc-user-property-id');
+
+      $(document).on('click', '#user-properties-grid .project-btn', function() {
+        const btn = $(this);
+        const projectName = btn.data('project-name') || '';
+        const builderName = btn.data('builder-name') || '';
+        const userPropertyId = btn.data('user-property-id') || '';
+        if (callbackForm.length) {
+          callbackForm[0].reset();
+        }
+        cbProject.val(projectName);
+        cbBuilder.val(builderName);
+        cbUserPropertyId.val(userPropertyId);
+        callbackModal.fadeIn(150);
+      });
+
+      $('#project-callback-close').on('click', function() {
+        callbackModal.hide();
+      });
+
+      $('#project-callback-modal').on('click', function(e) {
+        if (e.target === this) {
+          callbackModal.hide();
+        }
+      });
+
+      callbackForm.on('submit', async function(e) {
+        e.preventDefault();
+        const name = cbName.val().trim();
+        const email = cbEmail.val().trim();
+        const phone = cbPhone.val().trim();
+        const projectName = cbProject.val().trim();
+        const builderName = cbBuilder.val().trim();
+        const userPropertyId = cbUserPropertyId.val().trim();
+
+        if (!name || !email || !phone || !projectName) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please fill all required fields.', true);
+          }
+          return;
+        }
+
+        const phoneClean = phone.replace(/[^0-9]/g, '').slice(0, 10);
+        if (phoneClean.length !== 10) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please enter a valid 10-digit mobile number.', true);
+          }
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please enter a valid email address.', true);
+          }
+          return;
+        }
+
+        const payload = {
+          name: name,
+          email: email,
+          phone: phoneClean,
+          project_name: projectName,
+          builder_name: builderName,
+          user_property_id: userPropertyId || null
+        };
+
+        const submitBtn = callbackForm.find('button[type="submit"]');
+        const prevText = submitBtn.html();
+        submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Submitting...');
+
+        try {
+          const response = await fetch('/api/user-project-callback', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            const msg = data && data.error ? data.error : 'Failed to submit request.';
+            if (window.FormHandler && FormHandler.showToast) {
+              FormHandler.showToast(msg, true);
+            }
+          } else {
+            if (window.FormHandler && FormHandler.showToast) {
+              FormHandler.showToast(data.message || 'Request submitted successfully.', false);
+            }
+            callbackModal.hide();
+          }
+        } catch (err) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Network error. Please try again.', true);
+          }
+        } finally {
+          submitBtn.prop('disabled', false).html(prevText);
+        }
+      });
+
+      $('#property-form').off('submit.postProperty').on('submit.postProperty', async function(e){
+        e.preventDefault();
+        const project_name = $('#project_name').val().trim();
+        const builder_name = $('#builder_name').val().trim();
+        const project_type = $('#project_type').val();
+        const min_price = $('#min_price').val().trim();
+        const max_price = $('#max_price').val().trim();
+        const size_sqft = $('#size_sqft').val().trim();
+        const bhk = $('#bhk').val().trim();
+        const status_possession = $('#status_possession').val();
+        const location = $('#location').val().trim();
+        const rera_number = $('#rera_number').val().trim();
+        const possession_date = $('#possession_date').val().trim();
+        const ownerName = $('#ownerName').val().trim();
+        const ownerEmail = $('#ownerEmail').val().trim();
+        const ownerMobile = $('#ownerMobile').val().trim();
+
+        if (!project_name || !builder_name || !project_type || !min_price || !max_price || !size_sqft || !bhk || !status_possession || !location || !ownerName || !ownerEmail || !ownerMobile) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please fill all required fields.', true);
+          }
+          return;
+        }
+
+        const phoneClean = ownerMobile.replace(/[^0-9]/g, '').slice(0, 10);
+        if (phoneClean.length !== 10) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please enter a valid 10-digit mobile number.', true);
+          }
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(ownerEmail)) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Please enter a valid email address.', true);
+          }
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('project_name', project_name);
+        formData.append('builder_name', builder_name);
+        formData.append('project_type', project_type);
+        formData.append('min_price', min_price);
+        formData.append('max_price', max_price);
+        formData.append('size_sqft', size_sqft);
+        formData.append('bhk', bhk);
+        formData.append('status_possession', status_possession);
+        formData.append('location', location);
+        formData.append('rera_number', rera_number);
+        formData.append('possession_date', possession_date);
+        formData.append('owner_name', ownerName);
+        formData.append('owner_email', ownerEmail);
+        formData.append('owner_phone', phoneClean);
+
+        const photoInputs = $('input[name="photos"]');
+        photoInputs.each(function(){
+          if (this.files && this.files[0]) {
+            formData.append('photos', this.files[0]);
+          }
+        });
+
+        const submitBtn = $(this).find('button[type="submit"]');
+        const originalText = submitBtn.html();
+        submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Submitting...');
+
+        try {
+          const response = await fetch('/api/user-properties', {
+            method: 'POST',
+            body: formData
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            const msg = data && data.error ? data.error : 'Failed to submit property.';
+            if (window.FormHandler && FormHandler.showToast) {
+              FormHandler.showToast(msg, true);
+            }
+          } else {
+            if (window.FormHandler && FormHandler.showToast) {
+              FormHandler.showToast(data.message || 'Property submitted successfully.', false);
+            }
+            $('#property-form')[0].reset();
+            loadUserProperties();
+          }
+        } catch (err) {
+          if (window.FormHandler && FormHandler.showToast) {
+            FormHandler.showToast('Network error. Please try again.', true);
+          }
+        } finally {
+          submitBtn.prop('disabled', false).html(originalText);
+        }
+      });
+
+      // Search functionality for user properties
+      $('#property-search').on('input', function() {
+        const searchTerm = $(this).val().toLowerCase();
+        
+        if (!searchTerm) {
+          $('.project-card').show();
+          $('#no-user-properties').hide();
+          return;
+        }
+        
+        $('.project-card').each(function() {
+          const projectName = $(this).find('.project-title').text().toLowerCase();
+          const locationText = $(this).find('.project-location').last().text().toLowerCase();
+          if (projectName.includes(searchTerm) || locationText.includes(searchTerm)) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+        
+        // Show/hide no results message
+        const visibleProjects = $('.project-card:visible').length;
+        const noResultsMsg = $('#no-user-properties');
+        
+        if (visibleProjects === 0) {
+          noResultsMsg.text('No properties found matching your search.').show();
+        } else {
+          noResultsMsg.hide();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
