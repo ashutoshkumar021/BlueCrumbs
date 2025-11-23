@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Builder name normalization function
 function normalizeBuilderName(builderName) {
@@ -156,6 +157,13 @@ cloudinary.config({
 // Connect to MongoDB
 connectDB();
 ensureDefaultAdmins();
+
+app.use(cors({
+    origin: true,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(bodyParser.json());
 
