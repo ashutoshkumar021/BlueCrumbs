@@ -218,7 +218,7 @@ $(document).ready(function() {
                     ${project.location || ''}
                   </div>
                   <div class="project-features">
-                    ${bhk ? `<span class=\"feature\">BHK:${bhk}</span>` : ''}
+                    ${bhk ? `<span class=\"feature\">${bhk}</span>` : ''}
                     ${size ? `<span class=\"feature\">Size:${size}</span>` : ''}
                     ${project.project_type ? `<span class=\"feature\">Type:${project.project_type}</span>` : ''}
                     ${project.rera_number ? `<span class=\"feature\">RERA: ${project.rera_number}</span>` : ''}

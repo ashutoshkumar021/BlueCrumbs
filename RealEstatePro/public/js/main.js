@@ -33,21 +33,30 @@ $(document).ready(function () {
     // Initialize mobile navigation on all pages
     function initializeMobileNav() {
         // Mobile menu toggle
-        $('.mobile-menu-toggle').on('click', function() {
-            $('.mobile-nav').addClass('active');
-            $('body').addClass('no-scroll');
+        $('#mobile-menu-toggle').on('click', function(e) {
+            e.stopPropagation();
+            $('#mobile-nav').toggleClass('active');
+            $('body').toggleClass('no-scroll');
         });
         
-        // Close mobile menu
-        $('.mobile-close-btn, .mobile-nav-overlay').on('click', function() {
-            $('.mobile-nav').removeClass('active');
+        // Close mobile menu when clicking outside
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('#mobile-nav, #mobile-menu-toggle').length) {
+                $('#mobile-nav').removeClass('active');
+                $('body').removeClass('no-scroll');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        $('#mobile-nav a').on('click', function() {
+            $('#mobile-nav').removeClass('active');
             $('body').removeClass('no-scroll');
         });
         
         // Close on ESC key
         $(document).on('keydown', function(e) {
             if (e.key === 'Escape') {
-                $('.mobile-nav').removeClass('active');
+                $('#mobile-nav').removeClass('active');
                 $('body').removeClass('no-scroll');
             }
         });
@@ -130,6 +139,20 @@ $(document).ready(function () {
     });
 
     // ================== CAROUSELS (Owl) ==================
+    function initHeroSlider() {
+        if ($('.hero-slider').length && $.fn.owlCarousel) {
+            $('.hero-slider').owlCarousel({
+                items: 1,
+                loop: true,
+                nav: false,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true
+            });
+        }
+    }
+
     function initBuildersCarousel() {
         if ($('.builders-carousel').length && $.fn.owlCarousel) {
             $('.builders-carousel').owlCarousel({
@@ -161,6 +184,7 @@ $(document).ready(function () {
 
     // init after templates load
     setTimeout(function () {
+        initHeroSlider();
         initBuildersCarousel();
         initTestimonials();
     }, 350);
@@ -411,7 +435,7 @@ $(document).ready(function () {
                     return '<div class="project-image-slide' + active + '" style="background-image: url(\'' + url + '\')"></div>';
                 }).join('');
                 let features = '';
-                if (bhk) features += '<span class="feature-item">BHK: ' + bhk + '</span>';
+                if (bhk) features += '<span class="feature-item"> ' + bhk + '</span>';
                 if (size) features += '<span class="feature-item">Size: ' + size + '</span>';
                 if (project.project_type) features += '<span class="feature-item">Type: ' + project.project_type + '</span>';
                 if (project.rera_number) features += '<span class="feature-item">RERA: ' + project.rera_number + '</span>';

@@ -6,11 +6,11 @@
 function getUserEmailTemplate(formType, data) {
     const templates = {
         'contact': {
-            subject: 'Thank you for contacting Blue Crumbs Infra',
+            subject: 'Thank you for contacting Bluecrumbs Infra',
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                     <div style="background: linear-gradient(135deg, #0d2c54 0%, #1a4d8f 100%); padding: 30px; text-align: center;">
-                        <h1 style="color: #fff; margin: 0;">Blue Crumbs Infra</h1>
+                        <h1 style="color: #fff; margin: 0;">Bluecrumbs Infra</h1>
                     </div>
                     <div style="padding: 30px; background: #f8f9fb;">
                         <h2 style="color: #0d2c54;">Dear ${data.name},</h2>
@@ -26,13 +26,13 @@ function getUserEmailTemplate(formType, data) {
                             Meanwhile, feel free to explore our latest properties on our website or contact us directly at:
                         </p>
                         <ul style="color: #4b5563; line-height: 1.8;">
-                            <li>Phone: +91 9999999999</li>
-                            <li>Email: info@bluecrumbsinfra.com</li>
+                            <li>Phone:- 9582806698</li>
+                            <li>Email:- bluecrumbsinfra@gmail.com</li>
                         </ul>
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
                             <p style="color: #6b7280; font-size: 14px; text-align: center;">
                                 Best Regards,<br>
-                                <strong>Blue Crumbs Infra Team</strong>
+                                <strong>Bluecrumbs Infra Team</strong>
                             </p>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ function getUserEmailTemplate(formType, data) {
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                     <div style="background: linear-gradient(135deg, #0d2c54 0%, #1a4d8f 100%); padding: 30px; text-align: center;">
-                        <h1 style="color: #fff; margin: 0;">Blue Crumbs Infra</h1>
+                        <h1 style="color: #fff; margin: 0;">Bluecrumbs Infra</h1>
                     </div>
                     <div style="padding: 30px; background: #f8f9fb;">
                         <h2 style="color: #0d2c54;">Dear ${data.name},</h2>
@@ -75,7 +75,7 @@ function getUserEmailTemplate(formType, data) {
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
                             <p style="color: #6b7280; font-size: 14px; text-align: center;">
                                 Best Regards,<br>
-                                <strong>Blue Crumbs Real Estate Team</strong>
+                                <strong>Bluecrumbs Infra Team</strong>
                             </p>
                         </div>
                     </div>
@@ -83,16 +83,16 @@ function getUserEmailTemplate(formType, data) {
             `
         },
         'career': {
-            subject: 'Application Received - Blue Crumbs Infra',
+            subject: 'Application Received - Bluecrumbs Infra',
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                     <div style="background: linear-gradient(135deg, #0d2c54 0%, #1a4d8f 100%); padding: 30px; text-align: center;">
-                        <h1 style="color: #fff; margin: 0;">Blue Crumbs Infra</h1>
+                        <h1 style="color: #fff; margin: 0;">Bluecrumbs Infra</h1>
                     </div>
                     <div style="padding: 30px; background: #f8f9fb;">
                         <h2 style="color: #0d2c54;">Dear ${data.name},</h2>
                         <p style="color: #4b5563; line-height: 1.6;">
-                            Thank you for applying for the position of <strong>${data.position}</strong> at Blue Crumbs Infra. We have successfully received your application.
+                            Thank you for applying for the position of <strong>${data.position}</strong> at Bluecrumbs Infra. We have successfully received your application.
                         </p>
                         <div style="background: #fff; padding: 20px; border-radius: 8px; margin: 20px 0;">
                             <h3 style="color: #0d2c54; margin-top: 0;">Application Details:</h3>
@@ -113,7 +113,7 @@ function getUserEmailTemplate(formType, data) {
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
                             <p style="color: #6b7280; font-size: 14px; text-align: center;">
                                 Best Regards,<br>
-                                <strong>Blue Crumbs HR Team</strong>
+                                <strong>Bluecrumbs HR Team</strong>
                             </p>
                         </div>
                     </div>
@@ -121,16 +121,16 @@ function getUserEmailTemplate(formType, data) {
             `
         },
         'newsletter': {
-            subject: 'Welcome to Blue Crumbs Infra Newsletter',
+            subject: 'Welcome to Bluecrumbs Infra Newsletter',
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                     <div style="background: linear-gradient(135deg, #0d2c54 0%, #1a4d8f 100%); padding: 30px; text-align: center;">
-                        <h1 style="color: #fff; margin: 0;">Blue Crumbs Infra</h1>
+                        <h1 style="color: #fff; margin: 0;">Bluecrumbs Infra</h1>
                     </div>
                     <div style="padding: 30px; background: #f8f9fb;">
                         <h2 style="color: #0d2c54;">Welcome to Our Newsletter!</h2>
                         <p style="color: #4b5563; line-height: 1.6;">
-                            Thank you for subscribing to the Blue Crumbs Infra newsletter. You're now part of our exclusive community!
+                            Thank you for subscribing to the Bluecrumbs Infra newsletter. You're now part of our exclusive community!
                         </p>
                         <div style="background: #fff; padding: 20px; border-radius: 8px; margin: 20px 0;">
                             <h3 style="color: #0d2c54; margin-top: 0;">What to Expect:</h3>
@@ -147,7 +147,7 @@ function getUserEmailTemplate(formType, data) {
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
                             <p style="color: #6b7280; font-size: 12px; text-align: center;">
                                 You can unsubscribe at any time by clicking the unsubscribe link in our emails.<br><br>
-                                <strong>Blue Crumbs Infra Team</strong>
+                                <strong>Bluecrumbs Infra Team</strong>
                             </p>
                         </div>
                     </div>

@@ -1448,14 +1448,21 @@ app.get('/api/properties/location/:location', async (req, res) => {
         const { location } = req.params;
         const normalizedLocation = normalizeLocation(location);
 
-        const properties = await RealEstateProject.find({ 
-            base_location: normalizedLocation
-        }).sort({ createdAt: -1 });
-        
-        const userProperties = await UserProperty.find({ 
-            base_location: normalizedLocation
-        }).sort({ createdAt: -1 });
-        
+        const baseQuery = { base_location: normalizedLocation };
+
+        let projectQuery = { ...baseQuery };
+        let userQuery = { ...baseQuery };
+
+        if (location === 'Noida Extension') {
+            projectQuery.location = { $regex: /^Noida Extension$/i };
+            userQuery.location = { $regex: /^Noida Extension$/i };
+        }
+
+        const [properties, userProperties] = await Promise.all([
+            RealEstateProject.find(projectQuery).sort({ createdAt: -1 }),
+            UserProperty.find(userQuery).sort({ createdAt: -1 })
+        ]);
+
         const allProperties = [...properties, ...userProperties];
         res.json(allProperties);
     } catch (err) {

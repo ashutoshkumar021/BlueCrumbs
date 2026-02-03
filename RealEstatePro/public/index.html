@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BlueCrumbs | Find Your Dream Property</title>
+    <title>Bluecrumbs | Find Your Dream Property</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/bgremovelogo.png" />
-    <link rel="shortcut icon" type="image/png" href="images/bgremovelogo.png" />
-    <link rel="apple-touch-icon" href="images/bgremovelogo.png" />
+   <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/bclogo.jpeg" />
+    <link rel="shortcut icon" type="image/png" href="images/bclogo.jpeg" />
+    <link rel="apple-touch-icon" href="images/bclogo.jpeg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -72,56 +72,97 @@
       .project-features { display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
       .feature { background: #f8f9fb; padding: 5px 10px; border-radius: 15px; font-size: 0.85rem; color: #0d2c54; }
       .project-price { font-size: 1.5rem; font-weight: 700; color: #f7b801; margin-bottom: 15px; }
-      .project-btn { width: 100%; padding: 12px; background: #0d2c54; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: auto; }
-      .project-btn:hover { background: #173a77; }
+      .project-btn { width: 100%; padding: 12px; background: #7478a3; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: auto; }
+      .project-btn:hover { background: #7478a3; }
     </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
+    <br>
 
     <main>
-        <section class="hero">
-            <div class="hero-inner container">
-                <div class="hero-text">
+       <!-- Hero Slider Section -->
+        <div class="hero-slider owl-carousel">
+            <!-- Slide 1 -->
+            <div class="hero-slide" style="background-image: url('images/home.jpg');">
+                <div class="hero-content">
                     <h1>Find Your Dream Property Today</h1>
-                    <p>Discover premium residential, commercial & industrial properties in Noida, Greater Noida,Yaumna Expressway, Noida Extension, Ghaziabad and Dholera surrounding areas with Blue Crumbs Infra.</p>
-                </div>
-                <div class="search-box">
-                    <div class="nav-tabs" role="tablist">
-                        <button type="button" class="tab-link active" data-tab="search-location-tab" role="tab" aria-selected="true">
-                            Search by Location
-                        </button>
-                        <button type="button" class="tab-link" data-tab="search-name-tab" role="tab" aria-selected="false">
-                            Search by Name
-                        </button>
-                    </div>
-                    <div id="search-location-tab" class="tab-content active" aria-hidden="false">
-                        <form class="search-form" id="location-search-form" aria-label="Search by Location">
-                            <input type="text" id="search-location" placeholder="Enter location (e.g., Noida Sector 150, Ghaziabad, Dholera)" aria-label="Location" />
-                            <select id="search-type" aria-label="Property Type">
-                                <option value="all" selected>All Types</option>
-                                <option value="Residential">Residential</option>
-                                <option value="Commercial">Commercial</option>
-                                <option value="Industrial">Industrial</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary">Search <i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </div>
-                    <div id="search-name-tab" class="tab-content" aria-hidden="true">
-                        <form class="search-form" id="name-search-form" aria-label="Search by Name">
-                            <input type="text" id="search-name" placeholder="Enter project name" aria-label="Project Name" />
-                            <select id="search-type-name" aria-label="Property Type">
-                                <option value="all" selected>All Types</option>
-                                <option value="Residential">Residential</option>
-                                <option value="Commercial">Commercial</option>
-                                <option value="Industrial">Industrial</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary">Search <i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </div>
+                    <p>Discover premium residential, commercial & industrial properties in Noida, Greater Noida, Yamuna
+                        Expressway, Noida Extension, Ghaziabad and Dholera surrounding areas with Bluecrumbs Infra.</p>
+                    <a href="/about.html" class="btn btn-primary btn-lg">Know About Us</a>
                 </div>
             </div>
-        </section>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide" style="background-image: url('images/2151339742.jpg');">
+                <div class="hero-content">
+                    <h1>Luxury Living Redefined</h1>
+                    <p>Experience world-class amenities and modern architecture in the most sought-after locations.</p>
+                    <a href="/projects.html" class="btn btn-primary btn-lg">View Projects</a>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide" style="background-image: url('images/matt-nelson-dCNGrp_0GyM-unsplash.jpg');">
+                <div class="hero-content">
+                    <h1>Invest in Your Future</h1>
+                    <p>Premium properties with high returns in prime locations across NCR region.</p>
+                    <a href="/contact.html" class="btn btn-primary btn-lg">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="search-section" class="search-box">
+                        <div class="nav-tabs" role="tablist">
+                            <button type="button" class="tab-link active" data-tab="search-location-tab" role="tab"
+                                aria-selected="true">
+                                Search by Location
+                            </button>
+                            <button type="button" class="tab-link" data-tab="search-name-tab" role="tab"
+                                aria-selected="false">
+                                Search by Name
+                            </button>
+                        </div>
+                        <div id="search-location-tab" class="tab-content active" aria-hidden="false">
+                            <form class="search-form" id="location-search-form" aria-label="Search by Location">
+                                <input type="text" id="search-location"
+                                    placeholder="Enter location (e.g., Noida Sector 150, Ghaziabad, Dholera)"
+                                    aria-label="Location" />
+                                <select id="search-type" aria-label="Property Type">
+                                    <option value="all" selected>All Types</option>
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commercial">Commercial</option>
+                                    <option value="Industrial">Industrial</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary">Search <i
+                                        class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                        <div id="search-name-tab" class="tab-content" aria-hidden="true">
+                            <form class="search-form" id="name-search-form" aria-label="Search by Name">
+                                <input type="text" id="search-name" placeholder="Enter project name"
+                                    aria-label="Project Name" />
+                                <select id="search-type-name" aria-label="Property Type">
+                                    <option value="all" selected>All Types</option>
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commercial">Commercial</option>
+                                    <option value="Industrial">Industrial</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary">Search <i
+                                        class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
 
         <!-- Search Results Section (Initially Hidden) -->
         <section id="search-results-section" class="section container" style="display: none;">
@@ -132,46 +173,14 @@
             </div>
         </section>
 
-        <!-- <section class="section container">
-            <h2 class="section-title">Prime Locations We Cover</h2>
-            <div class="cities-grid">
-                <a href="./location/noida.html" class="city-card">
-                    <img src="https://www.realtydart.com/uploads/location/noida.png" alt="Noida">
-                    <span>Noida</span>
-                </a>
-                <a href="./location/gtnoida.html" class="city-card">
-                    <img src="https://www.realtydart.com/uploads/location/gurgaon_1582879483.png" alt="Greater Noida">
-                    <span>Greater Noida</span>
-                </a>
-                <a href="./location/noidaext.html" class="city-card">
-                    <img src="https://www.realtydart.com/uploads/location/noida.png">
-                    <span>Noida Extension</span>
-                </a>
-            </div>
-            <br>
-            <div class="cities-grid">
-                <a href="./location/dhulera.html" class="city-card">
-                    <img src="./images/dhulera.jpeg" alt="Dhulera">
-                    <span>Dholera</span>
-                </a>
-                <a href="./location/Yaumnaexp.html" class="city-card">
-                    <img src="https://www.realtydart.com/uploads/location/gurgaon_1582879483.png" alt="Greater Noida">
-                    <span>Yamuna Expressway</span>
-                </a>
-                <a href="./location/Ghaziabad.html" class="city-card">
-                    <img src="./images/ghaziabad.png">
-                    <span>Ghaziabad</span>
-                </a>
-            </div>
-        </section> -->
-
-        <section class="section container">
+        
+        <section class="section container prime-locations">
             <h2 class="section-title">Prime Locations We Cover</h2>
             <div class="owl-carousel builders-carousel owl-theme">
                 
-                <div class="item"><a href="./location/noida.html" class="builder-card" aria-label="Noida Logo"><img src="https://www.realtydart.com/uploads/location/noida.png" alt="noida"><span>Noida</span></a></div>
+                <div class="item"><a href="./location/noida.html" class="builder-card" aria-label="Noida Logo"><img src="https://www.realtydart.com/uploads/location/noida.png" alt="noida"><span>Noida</span><br></a></div>
 
-                <div class="item"><a href="./location/gtnoida.html" class="builder-card" aria-label="Greater Noida Logo"><img src="./images/ghaziabad.png" alt="noida"><span>Greater Noida</span></a></div>
+                <div class="item"><a href="./location/gtnoida.html" class="builder-card" aria-label="Greater Noida Logo"><img src="./images/ghaziabad.png" alt="noida"><span>Greater Noida</span><br></a></div>
 
 
                 <div class="item"><a href="./location/noidaext.html" class="builder-card" aria-label="Noida Extension Logo"><img src="https://www.realtydart.com/uploads/location/noida.png" alt="noida"><span>Noida Extension</span></a></div>
@@ -180,10 +189,10 @@
                 <div class="item"><a href="./location/Yaumnaexp.html" class="builder-card" aria-label="Yaumna Expressway Logo"><img src="https://www.realtydart.com/uploads/location/gurgaon_1582879483.png" alt="noida"><span>Yamuna Expressway</span></a></div>
 
 
-                <div class="item"><a href="./location/Ghaziabad.html" class="builder-card" aria-label="Ghaziabad Logo"><img src="./images/ghaziabad.png" alt="noida"><span>Ghaziabad</span></a></div>
+                <div class="item"><a href="./location/Ghaziabad.html" class="builder-card" aria-label="Ghaziabad Logo"><img src="./images/ghaziabad.png" alt="noida"><span>Ghaziabad</span><br></a></div>
 
 
-                <div class="item"><a href="./location/dhulera.html" class="builder-card" aria-label="Dholera Logo"><img src="./images/dhulera.jpeg" alt="noida"><span>Dholera</span></a></div>
+                <div class="item"><a href="https://dholera.gujarat.gov.in/" class="builder-card" aria-label="Dholera Logo"><img src="./images/dholeracp.jpg" alt="noida"><span>Dholera</span><br></a></div>
 
 
                 
@@ -202,28 +211,7 @@
             </div>
         </section>
 
-        <!-- <section class="section container">
-            <h2 class="section-title">Featured Property Collections</h2>
-            <div class="tabs collection-tabs">
-                <button class="tab-button active" data-category="all">All</button>
-                <button class="tab-button" data-category="residential">Residential</button>
-                <button class="tab-button" data-category="commercial">Commercial</button>
-                <button class="tab-button" data-category="industrial">Industrial</button>
-            </div>
-            <div class="collection-grid">
-                <a href="#" class="collection-card collection-main" data-category="residential">
-                    <img src="https://www.realtydart.com/uploads/prop_status/new_launch_projects_-realty_dart_1597829529.jpg" alt="New Launch Projects">
-                    <div class="collection-overlay"><h3>New Launch Projects</h3></div>
-                </a>
-                <div class="collection-side">
-                    <a href="#" class="collection-card" data-category="residential"><img src="https://www.realtydart.com/uploads/prop_status/rtm_flats_realty_dart_1597830844.jpg" alt="Ready to Move"><div class="collection-overlay"><h4>Ready to Move</h4><p>5 Listings</p></div></a>
-                    <a href="#" class="collection-card" data-category="residential"><img src="https://www.realtydart.com/uploads/prop_status/villas_-realty_dart_1597829831.jpg" alt="Villas"><div class="collection-overlay"><h4>Villas / Plots</h4><p>0 Listings</p></div></a>
-                    <a href="#" class="collection-card" data-category="commercial"><img src="https://www.realtydart.com/uploads/prop_status/office_space_realty_dart_1597831014.jpg" alt="Office Space"><div class="collection-overlay"><h4>Office Space</h4><p>8 Listings</p></div></a>
-                    <a href="#" class="collection-card" data-category="commercial"><img src="https://www.realtydart.com/uploads/prop_status/retail_shops_icon_1597829432.jpg" alt="Retail Shops"><div class="collection-overlay"><h4>Retail Shops</h4><p>12 Listings</p></div></a>
-                </div>
-            </div>
-        </section> -->
-
+       
         <section class="why-choose-us section">
             <div class="container">
                 <h2 class="section-title">Why Choose Us</h2>
@@ -270,27 +258,28 @@
         <section class="section container">
             <h2 class="section-title" style="margin-top: 0;">Authorised Channel Partner Of</h2> <br>
             <div class="owl-carousel builders-carousel owl-theme">
-                <div class="item"><a href="./builder/godrej.html" class="builder-card" aria-label="Godrej Group Logo"><img src="images/builders/godrej.jpg" alt="Godrej"></a></div>
-                <div class="item"><a href="./builder/ats.html" class="builder-card" aria-label="ATS Group Logo"><img src="images/builders/ats.jpg" alt="ATS"></a></div>
-                <div class="item"><a href="./builder/ace.html" class="builder-card" aria-label="ACE Group Logo"><img src="images/builders/ace.jpg" alt="Ace"></a></div>
-                <div class="item"><a href="./builder/max.html" class="builder-card" aria-label="MAX Group Logo"><img src="images/builders/max.jpg" alt="MAX"></a></div>
-                <div class="item"><a href="./builder/group108.html" class="builder-card" aria-label="Group 108 Logo"><img src="images/builders/group108.jpg" alt="Group 108"></a></div>
+                <div class="item"><a href="./builder/godrej.html" class="builder-card" aria-label="Godrej Group Logo"><img src="images/builders/godrej3.jpg" alt="Godrej"></a></div>
+                <div class="item"><a href="./builder/ats.html" class="builder-card" aria-label="ATS Group Logo"><img src="images/builders/ats1.jpg" alt="ATS"></a></div>
+                <div class="item"><a href="./builder/ace.html" class="builder-card" aria-label="ACE Group Logo"><img src="images/builders/ace1.jpg" alt="Ace"></a></div>
+                <div class="item"><a href="./builder/max.html" class="builder-card" aria-label="MAX Group Logo"><img src="images/builders/max1.jpg" alt="MAX"></a></div>
+                <div class="item"><a href="./builder/group108.html" class="builder-card" aria-label="Group 108 Logo"><img src="images/builders/group1082.jpg" alt="Group 108"></a></div>
                 <div class="item"><a href="./builder/bhutani.html" class="builder-card" aria-label="Bhutani Group Logo"><img src="images/builders/bhutani.jpg" alt="Bhutani"></a></div>
                 <!-- <div class="item"><a href="https://www.jaypee.com/" class="builder-card" aria-label="Jaypee Group Logo" target="_blank"><img src="images/builders/jaypee.jpg" alt="Jaypee"></a></div> -->
-                <div class="item"><a href="./builder/crc.html" class="builder-card" aria-label="CRC Group Logo"><img src="images/builders/crc.jpg" alt="CRC"></a></div>
+                <div class="item"><a href="./builder/crc.html" class="builder-card" aria-label="CRC Group Logo"><img src="images/builders/crc1.jpg" alt="CRC"></a></div>
                 <div class="item"><a href="./builder/tata.html" class="builder-card" aria-label="TATA Housing Logo"><img src="images/builders/tata.jpg" alt="TATA"></a></div>
-                <div class="item"><a href="./builder/m3m.html" class="builder-card" aria-label="M3M Group Logo"><img src="images/builders/m3m.png" alt="M3M"></a></div>
-                <div class="item"><a href="./builder/eldeco.html" class="builder-card" aria-label="Eldeco Group Logo"><img src="images/builders/eldeco.png" alt="Eldeco"></a></div>
-                <div class="item"><a href="./builder/exotica.html" class="builder-card" aria-label="Exotica Group Logo"><img src="images/builders/exotica.jpg" alt="Exotica"></a></div>
-                <div class="item"><a href="./builder/l&t.html" class="builder-card" aria-label="L&t Group Logo"><img src="images/builders/l&t.jpg" alt="L&t"></a></div>
-                <div class="item"><a href="./builder/experion.html" class="builder-card" aria-label="Experion Group Logo" ><img src="images/builders/experion.jpg" alt="Experion"></a></div>
-                <div class="item"><a href="./builder/fairfox.html" class="builder-card" aria-label="Fairfox Group Logo" ><img src="images/builders/fairfox.webp" alt="Fairfox"></a></div>
+                <div class="item"><a href="./builder/m3m.html" class="builder-card" aria-label="M3M Group Logo"><img src="images/builders/m3m1.jpg" alt="M3M"></a></div>
+                
+                <div class="item"><a href="./builder/l&t.html" class="builder-card" aria-label="L&t Group Logo"><img src="images/builders/l&t1.jpg" alt="L&t"></a></div>
+                <div class="item"><a href="./builder/experion.html" class="builder-card" aria-label="Experion Group Logo" ><img src="images/builders/experion2.jpg" alt="Experion"></a></div>
+                <div class="item"><a href="./builder/fairfox.html" class="builder-card" aria-label="Fairfox Group Logo" ><img src="images/builders/fairfox1.jpg" alt="Fairfox"></a></div>
                 <div class="item"><a href="./builder/gulshan.html" class="builder-card" aria-label="Gulshan Group Logo"><img src="images/builders/gulshan.jpg" alt="Gulshan"></a></div>
-                <div class="item"><a href="./builder/homecraft.html" class="builder-card" aria-label="Homecraft Group Logo"><img src="images/builders/homecraft.png" alt="Homecraft"></a></div>
-                <div class="item"><a href="./builder/kalptaru.html" class="builder-card" aria-label="
-                    Kalptaru Group Logo"><img src="images/builders/kalptaru.png" alt="kalptaru"></a></div>
-                <div class="item"><a href="./builder/prestige.html" class="builder-card" aria-label="Prestige Group Logo"><img src="images/builders/prestige.webp" alt="Prestige"></a></div>
-                <div class="item"><a href="./builder/steller.html" class="builder-card" aria-label="Staller Group Logo"><img src="images/builders/stellar.png" alt="Staller"></a></div>
+                <div class="item"><a href="./builder/prestige.html" class="builder-card" aria-label="Prestige Group Logo"><img src="images/builders/prestige1.jpg" alt="Prestige"></a></div>
+                <div class="item"><a href="./builder/steller.html" class="builder-card" aria-label="Staller Group Logo"><img src="images/builders/stellar1.jpg" alt="Staller"></a></div>
+                <div class="item"><a href="./builder/eldeco.html" class="builder-card" aria-label="Eldeco Group Logo"><img src="images/builders/eldeco1.jpg" alt="Eldeco"></a></div>
+                <div class="item"><a href="./builder/exotica.html" class="builder-card" aria-label="Exotica Group Logo"><img src="images/builders/exotica2.jpg" alt="Exotica"></a></div>
+                <div class="item"><a href="./builder/homecraft.html" class="builder-card" aria-label="Homecraft Group Logo"><img src="images/builders/homekraft.jpg" alt="Homecraft"></a></div>
+                <div class="item"><a href="./builder/kalptaru.html" class="builder-card" aria-label="Kalptaru Group Logo"><img src="images/builders/kalpataru.jpg" alt="kalptaru"></a></div>
+                
                 <div class="item"><a href="./builder/sobha.html" class="builder-card" aria-label=" Sobha Logo"><img src="images/builders/sobha.png" alt="Sobha"></a></div>
             </div>
         </section>
@@ -298,11 +287,11 @@
         <section class="testimonials-section">
             <div class="container">
                 <div class="testimonial-card">
-                    <img src="" alt="Mr. Shivam Verma">
                     <i class="fa-solid fa-quote-left quote-icon"></i>
                     <p>"Highly professional personnel with excellent knowledge of the property market and procedures, humble and cooperative, clean dealings, and laudable behavior."</p>
-                    <h4>Mr. Shivam Verma</h4>
+                    <h4>Mr. Shivam Singh</h4>
                     <span>Sr. Consultant</span>
+                    <div class="testimonial-contact">Contact: +91-9711179060</div>
                 </div>
             </div>
         </section>

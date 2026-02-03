@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Post Property | BlueCrumbs</title>
+  <title>Post Property | Bluecrumbs</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/bgremovelogo.png" />
-    <link rel="shortcut icon" type="image/png" href="images/bgremovelogo.png" />
-    <link rel="apple-touch-icon" href="images/bgremovelogo.png" />
+    <link rel="icon" type="image/png" href="images/bclogo.jpeg" />
+    <link rel="shortcut icon" type="image/png" href="images/bclogo.jpeg" />
+    <link rel="apple-touch-icon" href="images/bclogo.jpeg" />
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -360,7 +360,7 @@
     .project-btn {
       width: 100%;
       padding: 12px;
-      background: #0d2c54;
+      background: #7478a3;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -371,7 +371,7 @@
     }
 
     .project-btn:hover {
-      background: #173a77;
+      background: #7478a3;
     }
 
     /* Callback modal reused from projects page */
@@ -519,11 +519,11 @@
 
               <div class="form-group">
                 <label style="display: block; margin-bottom: 8px; color: #495057; font-weight: 600;">
-                  <i class="fas fa-bed" style="color: #feca57; margin-right: 5px;"></i> BHK Configuration *
+                  <i class="fas fa-bed" style="color: #feca57; margin-right: 5px;"></i> Unit Configuration *
                 </label>
                 <input type="text" id="bhk" required 
                     style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
-                    placeholder="e.g., 2,3,4 BHK">
+                    placeholder="e.g. in BHK or Office,Retail (iF Comm.)">
               </div>
 
               <div class="form-group">
@@ -758,7 +758,7 @@
                       $('<div>').text(p.location || '').html() +
                     '</div>' +
                     '<div class="project-features">' +
-                      (bhk ? '<span class="feature">BHK:' + $('<div>').text(bhk).html() + '</span>' : '') +
+                      (bhk ? '<span class="feature">' + $('<div>').text(bhk).html() + '</span>' : '') +
                       (size ? '<span class="feature">Size:' + $('<div>').text(size).html() + '</span>' : '') +
                       (p.project_type ? '<span class="feature">Type:' + $('<div>').text(p.project_type).html() + '</span>' : '') +
                       (p.rera_number ? '<span class="feature">RERA: ' + $('<div>').text(p.rera_number).html() + '</span>' : '') +

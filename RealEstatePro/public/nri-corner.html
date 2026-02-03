@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NRI Corner | BlueCrumbs</title>
+  <title>NRI Corner | Bluecrumbs</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/bgremovelogo.png" />
-    <link rel="shortcut icon" type="image/png" href="images/bgremovelogo.png" />
-    <link rel="apple-touch-icon" href="images/bgremovelogo.png" />
+   <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/bclogo.jpeg" />
+    <link rel="shortcut icon" type="image/png" href="images/bclogo.jpeg" />
+    <link rel="apple-touch-icon" href="images/bclogo.jpeg" />
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,6 @@
       font-family: 'Poppins', sans-serif;
       background: #f8f9fb;
       margin: 0;
-      padding: 0;
     }
 
     /* Sticky header */
@@ -277,12 +276,27 @@
       margin-bottom: 50px;
     }
     .nri-accordion { flex: 2; }
-    .nri-enquiry { flex: 1; min-width: 300px; }
+    .nri-enquiry { flex: 1; min-width: 450px; }
 
     /* Responsive */
     @media(max-width: 992px){
       .nri-wrapper {
         flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px){
+      .nri-accordion,
+      .nri-enquiry {
+        flex: 1 1 100%;
+      }
+
+      .nri-enquiry {
+        min-width: 100%;
+      }
+
+      .enquiry-box {
+        padding: 20px;
       }
     }
   </style>

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stellar | BlueCrumbs Real Estate</title>
+  <title>Stellar | Bluecrumbs</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../images/bgremovelogo.png" />
-    <link rel="shortcut icon" type="image/png" href="../images/bgremovelogo.png" />
-    <link rel="apple-touch-icon" href="../images/bgremovelogo.png" />
+    <link rel="icon" type="image/png" href="../images/bclogo.jpeg" />
+    <link rel="shortcut icon" type="image/png" href="../images/bclogo.jpeg" />
+    <link rel="apple-touch-icon" href="../images/bclogo.jpeg" />
   <meta name="description" content="Explore premium projects by Stellar Group. Quality residential and commercial properties in prime locations." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
       padding-top: 70px;
     }
     .breadcrumb-wrapper {
-      background: linear-gradient(135deg, #0d2c54 0%, #1a4d8f 100%);
+      background: #7478a3;
       padding: 40px 0 30px;
       text-align: center;
       color: #fff;
@@ -34,12 +34,7 @@
       font-weight: 700;
       margin-bottom: 8px;
     }
-    .breadcrumb-wrapper .rera-number {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      margin-bottom: 12px;
-      color: #f7b801;
-    }
+    
     .breadcrumb-wrapper .breadcrumb {
       display: inline-flex;
       justify-content: center;
@@ -62,7 +57,7 @@
       color: #f7b801;
     }
     .breadcrumb-wrapper .breadcrumb li + li::before {
-      content: ">";
+      content: "›";
       color: #f7b801;
       margin: 0 8px;
     }
@@ -105,44 +100,26 @@
       margin: 40px 0;
     }
     .stat-card {
-      background: #fff;
-      padding: 30px 20px;
-      border-radius: 15px;
       text-align: center;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, #f7b801, #e0a600);
+      padding: 30px;
+      background: linear-gradient(135deg, #fff 0%, #fef9e7 100%);
+      border-radius: 12px;
+      border: 2px solid #f7b801;
+      margin-bottom: 30px;
+      transition: transform 0.3s;
     }
     .stat-card:hover {
       transform: translateY(-5px);
     }
     .stat-card h3 {
+      color: #f7b801;
       font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #f7b801, #e0a600);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
     .stat-card p {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: #0d2c54;
+      font-weight: 500;
     }
     .projects-section {
       background: #fff;
@@ -413,108 +390,7 @@
         max-width: 200px;
       }
     }
-      /* Floating Button Styles */
-    .floating-btn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #f7b801 0%, #e0a600 100%);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      font-size: 24px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-    .floating-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    }
-    
-    /* Enquiry Popup Styles */
-    .enquiry-popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-    }
-    .popup-content {
-      background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 400px;
-      width: 90%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      animation: slideUp 0.3s ease;
-    }
-    @keyframes slideUp {
-      from {
-        transform: translateY(50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    .close-popup {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 28px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #999;
-      transition: color 0.3s;
-    }
-    .close-popup:hover {
-      color: #333;
-    }
-    .popup-content h3 {
-      color: #0d2c54;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-    .popup-content .form-group {
-      margin-bottom: 15px;
-    }
-    .popup-content input,
-    .popup-content textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-    .popup-content button[type="submit"] {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, #f7b801 0%, #e0a600 100%);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .popup-content button[type="submit"]:hover {
-      background: linear-gradient(135deg, #e0a600 0%, #c79500 100%);
-    }
-</style>
+  </style>
 </head>
 <body>
 
@@ -537,7 +413,7 @@
     <section class="builder-info-section">
       <div class="container">
         <div class="builder-logo-container">
-          <img src="../images/builders/stellar.png" alt="Stellar Group Logo" class="builder-logo-large" onerror="this.onerror=null;this.src='/images/logo.png';">
+          <img src="../images/builders/stellar1.jpg" alt="Stellar Group Logo" class="builder-logo-large" onerror="this.onerror=null;this.src='/images/logo.png';">
         </div>
         
         <!-- Stats Grid -->

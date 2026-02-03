@@ -50,6 +50,16 @@
   display: block;
 }
 
+.stats-section .row > [class^="col-"],
+.stats-section .row > [class*=" col-"] {
+  display: flex;
+}
+
+.stats-section .stat-box {
+  width: 100%;
+  height: 100%;
+}
+
 /* Large Screens */
 @media (min-width: 1200px) {
   .location-hero h1 {

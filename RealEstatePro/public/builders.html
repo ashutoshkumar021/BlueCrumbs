@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Top Real Estate Developers | BlueCrumbs</title>
+  <title>Top Real Estate Developers | Bluecrumbs</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/bgremovelogo.png" />
-    <link rel="shortcut icon" type="image/png" href="images/bgremovelogo.png" />
-    <link rel="apple-touch-icon" href="images/bgremovelogo.png" />
+   <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/bclogo.jpeg" />
+    <link rel="shortcut icon" type="image/png" href="images/bclogo.jpeg" />
+    <link rel="apple-touch-icon" href="images/bclogo.jpeg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,26 +21,32 @@
 
   <style>
     /* Builders page specific styles */
-    .page-fixed-banner {
-      /* Simulating the requested fixed banner/slider */
-      /* background: linear-gradient(rgba(13, 44, 84, 0.85), rgba(13, 44, 84, 0.85)), */
-      /* url("https://media.istockphoto.com/id/467829216/photo/dubai-marina.jpg?s=612x612&w=0&k=20&c=5KNh7wGSoP9i-UJzT-LtUfXgLHKKoBlPAK67R0LHRQY=") center/cover no-repeat; */
-      background: url("images/builders/builder.jpg")center/cover no-repeat;
-      padding: 80px 0 60px; /* Reduced padding for the banner */
+    .page-fixed-banner1 {
+      background: url("images/builders/builder.jpg") center/cover no-repeat;
+      padding: 100px 0 80px;
       text-align: center;
       color: #fff;
+      position: relative;
     }
-
-    .hero-section1{
-      background: url("images/builders/builder.jpg")center/cover no-repeat;
-       color: white;
-  padding: 100px 0;
-  text-align: center;
-  position: relative;
+    
+    .page-fixed-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(13, 44, 84, 0.8);
+      z-index: 1;
     }
-
-     .breadcrumb-wrapper {
-     padding: 40px 0 30px;
+    
+    .page-fixed-banner .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .breadcrumb-wrapper {
+      padding: 40px 0 30px;
       text-align: center;
       color: #fff;
     }
@@ -125,82 +131,147 @@
       padding: 50px 0;
     }
 
+    /* Builders Grid - Matching Projects Page */
+    .builders-section {
+      padding: 60px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0d2c54;
+      margin-bottom: 40px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #f7b801;
+      border-radius: 2px;
+    }
+    
     .builders-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 30px;
-      margin-top: 40px;
+      margin: 0 auto;
+      max-width: 1200px;
     }
 
     .builder-card {
       background: #fff;
       border-radius: 12px;
-      padding: 25px;
-      text-align: center;
+      overflow: hidden;
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
-      border: 1px solid #e5e7eb;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 20px 20px 18px;
     }
 
     .builder-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
-
+    
     .builder-logo {
-      width: 180px;
-      height: 120px;
-      object-fit: contain;
-      margin: 0 auto 20px;
       display: block;
+      margin: 0 auto 16px;
+      max-width: 180px;
+      max-height: 100px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    .builder-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #f7b801;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .builder-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .builder-name {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 600;
       color: #0d2c54;
-      margin-bottom: 10px;
+      margin: 5px 0 8px;
+      line-height: 1.3;
+      min-height: auto;
     }
 
     .builder-description {
-      color: black;
+      color: #6b7280;
       font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      margin: 0 0 15px;
+      line-height: 1.5;
+      flex-grow: 1;
+      text-align: justify;
     }
 
     .builder-features {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      justify-content: center;
       margin-bottom: 20px;
     }
 
     .feature-tag {
       background: #f8f9fb;
       color: #0d2c54;
-      padding: 4px 12px;
+      padding: 6px 12px;
       border-radius: 15px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-tag:hover {
+      background: #e9ecef;
+      transform: translateY(-2px);
     }
 
     .builder-btn {
+      display: block;
       width: 100%;
       padding: 12px;
-      background: #f7b801;
+      background: #7478a3;
       color: #fff;
       border: none;
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
     }
 
     .builder-btn:hover {
-      background: #e0a600;
+      background: #7478a3;
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(13, 44, 84, 0.2);
     }
 
     .search-builders {
@@ -305,112 +376,72 @@
 
   <div id="header-placeholder"></div>
 
-  <!-- <section class="page-fixed-banner">
+  <section class="page-fixed-banner1">
     <div class="container">
-      <h1>Top Real Estate Developers</h1>
-      <div class="breadcrumb-nav">
-          <i class="fa-solid fa-building-columns breadcrumb-icon"></i>
-          <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Builders</li>
-              </ol>
-          </nav>
+      <div class="breadcrumb-wrapper">
+        <h1>Top Real Estate Developers</h1>
+        <nav aria-label="breadcrumb" class="breadcrumb-nav">
+          
+        </nav>
       </div>
-    </div>
-  </section> -->
-
-  <div class="hero-section1">
-    <section class="breadcrumb-wrapper">
-    <div class="container">
-      <h1>Builders</h1>
-      <!-- <ul class="breadcrumb">
-        <li><a href="/index.html">Home</a></li>
-        <li>Builders</li>
-      </ul> -->
     </div>
   </section>
-  </div>
-  
 
   <main class="container">
-    <div class="search-builders">
-      <h3><i class="fa-solid fa-search"></i> Search Builders</h3>
-      <div class="search-input">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="builderSearch" placeholder="Search by builder name...">
-      </div>
-    </div>
-
-    <div class="stats-section">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <h3>50+</h3>
-            <p>Trusted Builders</p>
-          </div>
-          <div class="stat-item">
-            <h3>200+</h3>
-            <p>Completed Projects</p>
-          </div>
-          <div class="stat-item">
-            <h3>10000+</h3>
-            <p>Happy Customers</p>
-          </div>
-          <div class="stat-item">
-            <h3>15+</h3>
-            <p>Years Experience</p>
-          </div>
-        </div>
+    <div class="search-builders" style="margin: 30px 0;">
+      <div class="search-input" style="max-width: 600px; margin: 0 auto 40px; position: relative;">
+        <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #6b7280;"></i>
+        <input type="text" id="builderSearch" placeholder="Search builders by name..." style="width: 100%; padding: 12px 20px 12px 50px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s ease;">
       </div>
     </div>
 
     <div class="builders-section">
       <h2 class="section-title">Top Real Estate Developers</h2>
       <div class="builders-grid" id="buildersGrid">
+
         <div class="builder-card" data-name="godrej">
-          <img src="images/builders/godrej.jpg" alt="Godrej" class="builder-logo">
+          <img src="images/builders/godrej3.jpg" alt="godrej" class="builder-logo">
           <h3 class="builder-name">Godrej Properties</h3>
-          <p class="builder-description">Renowned brand delivering world-class residential and commercial developments.</p>
+          <p class="builder-description">Diversified developer offering residential, commercial, and industrial infrastructure.</p>
           <div class="builder-features">
-            <span class="feature-tag">Branded</span>
-            <span class="feature-tag">World-Class</span>
-            <span class="feature-tag">Reliable</span>
+            <span class="feature-tag">Diversified</span>
+            <span class="feature-tag">Industrial</span>
+            <span class="feature-tag">Infrastructure</span>
           </div>
           <button class="builder-btn" onclick="viewBuilderProjects('godrej')">View Projects</button>
         </div>
-
+       
         <div class="builder-card" data-name="ats">
-          <img src="images/builders/ats.jpg" alt="ATS Group" class="builder-logo">
-          <h3 class="builder-name">Ats Greens</h3>
-          <p class="builder-description">Innovative developer specializing in sustainable and eco-friendly residential projects.</p>
+          <img src="images/builders/ats1.jpg" alt="ats" class="builder-logo">
+          <h3 class="builder-name">ATS Greens</h3>
+          <p class="builder-description">Diversified developer offering residential, commercial, and industrial infrastructure.</p>
           <div class="builder-features">
-            <span class="feature-tag">Eco-Friendly</span>
-            <span class="feature-tag">Sustainable</span>
-            <span class="feature-tag">Modern</span>
+            <span class="feature-tag">Diversified</span>
+            <span class="feature-tag">Industrial</span>
+            <span class="feature-tag">Infrastructure</span>
           </div>
           <button class="builder-btn" onclick="viewBuilderProjects('ats')">View Projects</button>
         </div>
 
-        <div class="builder-card" data-name="ace">
-          <img src="images/builders/ace.jpg" alt="Ace Group" class="builder-logo">
-          <h3 class="builder-name">Ace Group</h3>
-          <p class="builder-description">Premium developer offering luxury residential and commercial spaces with modern amenities.</p>
+        <div class="builder-card" data-name="max">
+          <img src="images/builders/ace1.jpg" alt="Max Group" class="builder-logo">
+          <h3 class="builder-name">ACE Group</h3>
+          <p class="builder-description">Diversified developer offering residential, commercial, and industrial infrastructure.</p>
           <div class="builder-features">
-            <span class="feature-tag">Luxury</span>
-            <span class="feature-tag">Premium</span>
-            <span class="feature-tag">Modern</span>
+            <span class="feature-tag">Diversified</span>
+            <span class="feature-tag">Industrial</span>
+            <span class="feature-tag">Infrastructure</span>
           </div>
           <button class="builder-btn" onclick="viewBuilderProjects('ace')">View Projects</button>
         </div>
 
         <div class="builder-card" data-name="max">
-          <img src="images/builders/max.jpg" alt="Max Group" class="builder-logo">
+          <img src="images/builders/max1.jpg" alt="Max Group" class="builder-logo">
           <h3 class="builder-name">Max Estates</h3>
-          <p class="builder-description">Diversified developer offering residential, commercial, and healthcare infrastructure.</p>
+          <p class="builder-description">Diversified developer offering residential, commercial, and industrial infrastructure.</p>
           <div class="builder-features">
             <span class="feature-tag">Diversified</span>
-            <span class="feature-tag">Healthcare</span>
+            <span class="feature-tag">Industrial</span>
             <span class="feature-tag">Infrastructure</span>
           </div>
           <button class="builder-btn" onclick="viewBuilderProjects('max')">View Projects</button>
@@ -441,7 +472,7 @@
         </div> -->
 
         <div class="builder-card" data-name="crc">
-          <img src="images/builders/crc.jpg" alt="CRC Group" class="builder-logo">
+          <img src="images/builders/crc1.jpg" alt="CRC Group" class="builder-logo">
           <h3 class="builder-name">CRC</h3>
           <p class="builder-description">Trusted developer with a focus on quality construction and timely delivery of projects.</p>
           <div class="builder-features">
@@ -453,7 +484,7 @@
         </div>
 
         <div class="builder-card" data-name="m3m">
-          <img src="images/builders/m3m.png" alt="M3M Group" class="builder-logo">
+          <img src="images/builders/m3m1.jpg" alt="M3M Group" class="builder-logo">
           <h3 class="builder-name">M3M</h3>
           <p class="builder-description">Innovative developer creating landmark projects with cutting-edge design and technology.</p>
           <div class="builder-features">
@@ -465,7 +496,7 @@
         </div>
 
         <div class="builder-card" data-name="eldeco">
-          <img src="images/builders/eldeco.png" alt="Eldeco Group" class="builder-logo">
+          <img src="images/builders/eldeco1.jpg" alt="Eldeco Group" class="builder-logo">
           <h3 class="builder-name">Eldeco Group</h3>
           <p class="builder-description">Established developer with decades of experience in creating quality residential spaces.</p>
           <div class="builder-features">
@@ -489,8 +520,8 @@
         </div>
 
         <div class="builder-card" data-name="prestige">
-          <img src="images/builders/prestige.webp" alt="Prestige Group" class="builder-logo">
-          <h3 class="builder-name">Prestige constructions</h3>
+          <img src="images/builders/prestige1.jpg" alt="Prestige Group" class="builder-logo">
+          <h3 class="builder-name">Prestige</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">
             <span class="feature-tag">Luxury</span>
@@ -501,7 +532,7 @@
         </div>
 
         <div class="builder-card" data-name="exotica">
-          <img src="images/builders/exotica.jpg" alt="Exotica Group" class="builder-logo">
+          <img src="images/builders/exotica2.jpg" alt="Exotica Group" class="builder-logo">
           <h3 class="builder-name">Exotica</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">
@@ -513,7 +544,7 @@
         </div>
 
         <div class="builder-card" data-name="experion">
-          <img src="images/builders/experion.jpg" alt="Experion Group" class="builder-logo">
+          <img src="images/builders/experion2.jpg" alt="Experion Group" class="builder-logo">
           <h3 class="builder-name">Experion</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">
@@ -525,7 +556,7 @@
         </div>
 
         <div class="builder-card" data-name="fairfox">
-          <img src="images/builders/fairfox.webp" alt="Fairfox Group" class="builder-logo">
+          <img src="images/builders/fairfox1.jpg" alt="Fairfox Group" class="builder-logo">
           <h3 class="builder-name">Fairfox</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">
@@ -537,7 +568,7 @@
         </div>
 
         <div class="builder-card" data-name="group108">
-          <img src="images/builders/group108.jpg" alt="Group 108" class="builder-logo">
+          <img src="images/builders/group1082.jpg" alt="Group 108" class="builder-logo">
           <h3 class="builder-name">Group 108</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">
@@ -561,19 +592,19 @@
         </div>
 
                 <div class="builder-card" data-name="homecraft">
-          <img src="images/builders/atshomekraft.png" alt="Homecraft Group" class="builder-logo">
-          <h3 class="builder-name">ATS Homecraft</h3>
+          <img src="images/builders/homekraft.jpg" alt="Homecraft Group" class="builder-logo">
+          <h3 class="builder-name">ATS Homekraft</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">
             <span class="feature-tag">Luxury</span>
             <span class="feature-tag">Premium</span>
             <span class="feature-tag">Commercial</span>
           </div>
-          <button class="builder-btn" onclick="viewBuilderProjects('homecraft')">View Projects</button>
+          <button class="builder-btn" onclick="viewBuilderProjects('homekraft')">View Projects</button>
         </div>
 
                 <div class="builder-card" data-name="kalptaru">
-          <img src="images/builders/kalptaru.png" alt="Kalpataru Group" class="builder-logo">
+          <img src="images/builders/kalpataru.jpg" alt="Kalpataru Group" class="builder-logo">
           <h3 class="builder-name">Kalpataru</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">
@@ -585,7 +616,7 @@
         </div>
 
                 <div class="builder-card" data-name="l&t">
-          <img src="images/builders/l&t.jpg" alt="L & T Realty Group" class="builder-logo">
+          <img src="images/builders/l&t1.jpg" alt="L & T Realty Group" class="builder-logo">
           <h3 class="builder-name">L & T Realty</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">
@@ -597,7 +628,7 @@
         </div>
 
           <div class="builder-card" data-name="steller">
-          <img src="images/builders/stellar.png" alt="Stellar Group" class="builder-logo">
+          <img src="images/builders/stellar1.jpg" alt="Stellar Group" class="builder-logo">
           <h3 class="builder-name">Stellar</h3>
           <p class="builder-description">Premium developer known for luxury residential and commercial developments.</p>
           <div class="builder-features">

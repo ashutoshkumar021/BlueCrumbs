@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Properties in Greater Noida | BlueCrumbs Real Estate</title>
+  <title>Properties in Greater Noida | Bluecrumbs</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../images/bgremovelogo.png" />
-    <link rel="shortcut icon" type="image/png" href="../images/bgremovelogo.png" />
-    <link rel="apple-touch-icon" href="../images/bgremovelogo.png" />
+    <link rel="icon" type="image/png" href="../images/bclogo.jpeg" />
+    <link rel="shortcut icon" type="image/png" href="../images/bclogo.jpeg" />
+    <link rel="apple-touch-icon" href="../images/bclogo.jpeg" />
   <meta name="description" content="Find the best properties in Greater Noida. Premium residential and commercial projects with modern amenities.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
     body { padding-top: 70px; }
     
     .location-hero {
-      background: linear-gradient(135deg, #0d2c54 0%, #1a4d8f 100%);
+      background: #7478a3;
       padding: 60px 0 40px;
       text-align: center;
       color: #fff;
@@ -38,13 +38,36 @@
       opacity: 0.9;
     }
     .breadcrumb-nav {
-      background: #f8f9fb;
-      padding: 15px 0;
-      border-bottom: 1px solid #e5e7eb;
+      background: #7478a3;
+      padding: 20px 0;
+      text-align: center;
+      color: #fff;
     }
-    .breadcrumb {
+    .breadcrumb-nav .breadcrumb {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      background: none;
+      padding: 0;
       margin: 0;
-      background: transparent;
+    }
+    .breadcrumb-nav .breadcrumb-item {
+      font-size: 1.1rem;
+      color: #f7b801;
+    }
+    .breadcrumb-nav .breadcrumb-item a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .breadcrumb-nav .breadcrumb-item a:hover {
+      color: #f7b801;
+    }
+    .breadcrumb-nav .breadcrumb-item + .breadcrumb-item::before {
+      content: "›";
+      color: #f7b801;
+      margin: 0 8px;
     }
     .stats-section {
       padding: 50px 0;
@@ -161,8 +184,8 @@
       font-size: 0.9rem;
     }
     .view-btn {
-      background: linear-gradient(135deg, #f7b801 0%, #e0a600 100%);
-      color: #0d2c54;
+      background: #7478a3;
+      color: white;
       padding: 10px 25px;
       border-radius: 8px;
       border: none;
@@ -227,11 +250,7 @@
   <section class="breadcrumb-nav">
     <div class="container">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="/projects.html">Projects</a></li>
-          <li class="breadcrumb-item active">Greater Noida</li>
-        </ol>
+       
       </nav>
     </div>
   </section>
@@ -240,7 +259,7 @@
   <section class="stats-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-6">
+        <div class="col-md-3 col-6"> 
           <div class="stat-box">
             <h3>200+</h3>
             <p>Active Projects</p>
@@ -508,7 +527,7 @@
                     </div>
                   </div>
                   <div class="property-price">${price}</div>
-                  <button class="view-btn" onclick="window.location.href='/projects.html'">View Details</button>
+                  <button class="view-btn" onclick="window.location.href='/projects.html'">View All Project</button>
                 </div>
               </div>
             </div>
